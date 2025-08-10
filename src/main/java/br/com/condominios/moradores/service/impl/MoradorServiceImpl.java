@@ -3,12 +3,14 @@ package br.com.condominios.moradores.service.impl;
 import br.com.condominios.moradores.dto.MoradorRequestDTO;
 import br.com.condominios.moradores.dto.MoradorResponseDTO;
 import br.com.condominios.moradores.dto.MoradorUpdateDTO;
+import br.com.condominios.moradores.exception.MoradorNotFoundException;
 import br.com.condominios.moradores.model.Morador;
 import br.com.condominios.moradores.repository.MoradorRepository;
 import br.com.condominios.moradores.service.MoradorService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MoradorServiceImpl implements MoradorService {
@@ -27,8 +29,9 @@ public class MoradorServiceImpl implements MoradorService {
     }
 
     @Override
-    public MoradorResponseDTO getById(long id) {
-        return null;
+    public Morador getById(long id) {
+        return moradorRepository.findById(id)
+                .orElseThrow(() -> new MoradorNotFoundException());
     }
 
     @Override

@@ -15,7 +15,7 @@ public interface MoradorService {
 
     List<MoradorResponseDTO> getAllMoradores();
 
-    MoradorResponseDTO getById(long id);
+    Morador getById(long id);
 
     Morador saveMorador(MoradorRequestDTO moradorRequestDTO);
 
