@@ -6,6 +6,7 @@ import br.com.condominios.moradores.service.MoradorService;
 import br.com.condominios.moradores.service.impl.MoradorServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,5 +51,10 @@ public class MoradorController {
     @GetMapping(value = "{id}")
     public ResponseEntity<MoradorResponseDTO> getMoradorById(@PathVariable long id){
         return ResponseEntity.ok(new MoradorResponseDTO(moradorServiceImpl.getById(id)));
+    }
+
+    @DeleteMapping(value = "{id}")
+    public ResponseEntity<MoradorResponseDTO> deleteMorador(@PathVariable long id){
+        return  ResponseEntity.ok(new MoradorResponseDTO(moradorServiceImpl.deleteMorador(id)));
     }
 }

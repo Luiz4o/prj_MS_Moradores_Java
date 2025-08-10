@@ -48,6 +48,10 @@ public class MoradorServiceImpl implements MoradorService {
 
     @Override
     public Morador deleteMorador(long id) {
-        return null;
+        var moradorOptional = moradorRepository.findById(id);
+        var morador = moradorOptional.orElseThrow(() -> new MoradorNotFoundException());
+        moradorRepository.delete(morador);
+
+        return morador;
     }
 }
