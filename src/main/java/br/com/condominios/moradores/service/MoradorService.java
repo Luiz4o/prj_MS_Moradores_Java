@@ -1,5 +1,6 @@
 package br.com.condominios.moradores.service;
 
+import br.com.condominios.moradores.dto.MoradorAdminResponseDTO;
 import br.com.condominios.moradores.dto.MoradorRequestDTO;
 import br.com.condominios.moradores.dto.MoradorResponseDTO;
 import br.com.condominios.moradores.dto.MoradorUpdateDTO;
@@ -15,12 +16,14 @@ public interface MoradorService {
 
     List<MoradorResponseDTO> getAllMoradores();
 
-    Morador getById(long id);
+    MoradorResponseDTO getById(long id);
 
     Morador saveMorador(MoradorRequestDTO moradorRequestDTO);
 
-    Morador updateMorador(MoradorUpdateDTO moradorUpdateDTO);
+    MoradorResponseDTO updateMorador(long id,MoradorUpdateDTO moradorUpdateDTO);
 
-    Morador deleteMorador(long id);
+    MoradorResponseDTO deleteMorador(long id);
+
+    List<MoradorAdminResponseDTO> getAllAdminMoradores();
 
 }

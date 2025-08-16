@@ -1,4 +1,11 @@
 package br.com.condominios.moradores.dto;
 
-public record MoradorUpdateDTO() {
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public record MoradorUpdateDTO(
+        String nome,
+        Integer apartamento,
+        Integer bloco
+) {
 }
